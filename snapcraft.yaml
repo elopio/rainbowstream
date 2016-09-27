@@ -1,0 +1,22 @@
+name: rainbowstream
+version: master
+summary: A smart and nice Twitter client on terminal
+description: |
+  Terminal-based Twitter Client. Realtime tweetstream, compose, search,
+  favorite … and much more fun directly from terminal store.
+
+grade: devel
+confinement: strict
+
+apps:
+  rainbowstream:
+    command: rainbowstream
+    plugs: [network, network-control]
+
+parts:
+  rainbowstream:
+    source: .
+    plugin: python
+    stage-packages: [gcc, libc6-dev]
+    organize:
+      usr/bin/gcc: usr/bin/cc
